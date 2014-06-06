@@ -21,14 +21,16 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int bar_color=0x7f050009;
+        public static final int black=0x7f050001;
         public static final int blue=0x7f050000;
-        public static final int counter_text_bg=0x7f050006;
-        public static final int counter_text_color=0x7f050007;
-        public static final int list_background=0x7f050003;
-        public static final int list_background_pressed=0x7f050004;
-        public static final int list_divider=0x7f050005;
-        public static final int list_item_title=0x7f050002;
-        public static final int white=0x7f050001;
+        public static final int counter_text_bg=0x7f050007;
+        public static final int counter_text_color=0x7f050008;
+        public static final int list_background=0x7f050004;
+        public static final int list_background_pressed=0x7f050005;
+        public static final int list_divider=0x7f050006;
+        public static final int list_item_title=0x7f050003;
+        public static final int white=0x7f050002;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -45,47 +47,55 @@ public final class R {
         public static final int counter_bg=0x7f020001;
         public static final int grid_color_selector=0x7f020002;
         public static final int ic_accessories=0x7f020003;
-        public static final int ic_bags=0x7f020004;
-        public static final int ic_clothes=0x7f020005;
-        public static final int ic_communities=0x7f020006;
-        public static final int ic_drawer=0x7f020007;
-        public static final int ic_drawer1=0x7f020008;
-        public static final int ic_drawer2=0x7f020009;
-        public static final int ic_feed=0x7f02000a;
-        public static final int ic_home=0x7f02000b;
-        public static final int ic_jewellery=0x7f02000c;
-        public static final int ic_launcher=0x7f02000d;
-        public static final int ic_lingerie=0x7f02000e;
-        public static final int ic_pages=0x7f02000f;
-        public static final int ic_people=0x7f020010;
-        public static final int ic_photos=0x7f020011;
-        public static final int ic_shoes=0x7f020012;
-        public static final int ic_whats_hot=0x7f020013;
-        public static final int image_1=0x7f020014;
-        public static final int image_2=0x7f020015;
-        public static final int image_3=0x7f020016;
-        public static final int image_4=0x7f020017;
-        public static final int image_5=0x7f020018;
-        public static final int image_6=0x7f020019;
-        public static final int image_7=0x7f02001a;
-        public static final int image_8=0x7f02001b;
-        public static final int image_9=0x7f02001c;
-        public static final int list_item_bg_normal=0x7f02001d;
-        public static final int list_item_bg_pressed=0x7f02001e;
-        public static final int list_selector=0x7f02001f;
-        public static final int tiles_icon=0x7f020020;
+        public static final int ic_action_overflow=0x7f020004;
+        public static final int ic_action_search=0x7f020005;
+        public static final int ic_bags=0x7f020006;
+        public static final int ic_clothes=0x7f020007;
+        public static final int ic_communities=0x7f020008;
+        public static final int ic_drawer=0x7f020009;
+        public static final int ic_drawer1=0x7f02000a;
+        public static final int ic_drawer2=0x7f02000b;
+        public static final int ic_feed=0x7f02000c;
+        public static final int ic_home=0x7f02000d;
+        public static final int ic_jewellery=0x7f02000e;
+        public static final int ic_launcher=0x7f02000f;
+        public static final int ic_lingerie=0x7f020010;
+        public static final int ic_pages=0x7f020011;
+        public static final int ic_people=0x7f020012;
+        public static final int ic_photos=0x7f020013;
+        public static final int ic_shoes=0x7f020014;
+        public static final int ic_whats_hot=0x7f020015;
+        public static final int image_1=0x7f020016;
+        public static final int image_2=0x7f020017;
+        public static final int image_3=0x7f020018;
+        public static final int image_4=0x7f020019;
+        public static final int image_5=0x7f02001a;
+        public static final int image_6=0x7f02001b;
+        public static final int image_7=0x7f02001c;
+        public static final int image_8=0x7f02001d;
+        public static final int image_9=0x7f02001e;
+        public static final int list_item_bg_normal=0x7f02001f;
+        public static final int list_item_bg_pressed=0x7f020020;
+        public static final int list_selector=0x7f020021;
+        public static final int tiles_icon=0x7f020022;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a000a;
+        public static final int action_search=0x7f0a000f;
+        public static final int action_settings=0x7f0a0010;
         public static final int counter=0x7f0a0005;
         public static final int drawer_layout=0x7f0a0000;
         public static final int frame_container=0x7f0a0001;
-        public static final int gridView=0x7f0a0006;
+        public static final int gridView=0x7f0a0007;
         public static final int icon=0x7f0a0003;
-        public static final int image=0x7f0a0007;
+        public static final int image=0x7f0a0008;
+        public static final int invite=0x7f0a000c;
         public static final int list_slidermenu=0x7f0a0002;
-        public static final int price=0x7f0a0009;
-        public static final int text=0x7f0a0008;
+        public static final int logout=0x7f0a000e;
+        public static final int price=0x7f0a000a;
+        public static final int profile=0x7f0a000b;
+        public static final int progressBar1=0x7f0a0006;
+        public static final int settings=0x7f0a000d;
+        public static final int text=0x7f0a0009;
         public static final int title=0x7f0a0004;
     }
     public static final class layout {
@@ -95,29 +105,22 @@ public final class R {
         public static final int row_grid=0x7f030003;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
+        public static final int items=0x7f090000;
+        public static final int main=0x7f090001;
     }
     public static final class string {
+        public static final int action_search=0x7f070005;
         public static final int action_settings=0x7f070001;
         public static final int app_name=0x7f070000;
         /**  Content Description 
          */
-        public static final int desc_list_item_icon=0x7f070005;
+        public static final int desc_list_item_icon=0x7f070006;
         public static final int drawer_close=0x7f070004;
         public static final int drawer_open=0x7f070003;
         public static final int hello_world=0x7f070002;
     }
     public static final class style {
         /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -129,10 +132,8 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
-        /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
-         */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppBaseTheme=0x7f080002;
+        public static final int AppTheme=0x7f080000;
+        public static final int MyActionBar=0x7f080001;
     }
 }

@@ -23,7 +23,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.GridView;
+import android.widget.ProgressBar;
  
 /**
  *
@@ -38,19 +41,23 @@ public class MainFragment extends Fragment {
     private GridViewAdapter customGridAdapter;
     JSONObject productInfo = null;
     private ProgressDialog pDialog;
-    private static String url = "http://www.roposo.com/collection/clothes/tops?start=0&count=40&ajaxflag=true";
-    
+    private static String in_url = "http://www.roposo.com/collection/clothes/tops?start=0&count=40&ajaxflag=true";
+    //ProgressBar mProgress;
     // JSON Node names
     private static final String TAG_PRODUCTS = "productsJSON";
     private static final String TAG_IMAGES = "i";
     private static final String TAG_IMAGE_300 = "300x300";
     private static final String TAG_TYPE = "ty";
+    private static int start_id;
+    private static int end_id;
     
     ArrayList imageItems = new ArrayList();
     
     public MainFragment(){}
     public MainFragment(String url_to_fetch){
-    	url = url_to_fetch;
+    	in_url = url_to_fetch;
+//    	start_id = s_id;
+//    	end_id = e_id;
     }
  
     @Override
@@ -59,7 +66,8 @@ public class MainFragment extends Fragment {
 //        super.onCreate(savedInstanceState);
 //        setContentView(R.layout.fragment_main);        
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        new GetProductInfo().execute();
+        //ProgressBar mProgress = (ProgressBar) getView().findViewById(R.id.progressBar1);
+        new GetProductInfo().execute(in_url);
         return rootView;            
         
     }
@@ -67,21 +75,22 @@ public class MainFragment extends Fragment {
     /**
      * Async task class to get json by making HTTP call
      * */
-    private class GetProductInfo extends AsyncTask<Void, Void, Void> {
+    private class GetProductInfo extends AsyncTask<String, Void, Void> {
  
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
-            pDialog = new ProgressDialog(getActivity());
+           pDialog = new ProgressDialog(getActivity());
             pDialog.setMessage("Please wait...");
             pDialog.setCancelable(false);
-            pDialog.show();
+            //pDialog.show();
  
         }
  
         @Override
-        protected Void doInBackground(Void... arg0) {
+        protected Void doInBackground(String... args) {
+        	String url = args[0];
             // Creating service handler class instance
             ServiceHandler sh = new ServiceHandler();
  
@@ -139,11 +148,15 @@ public class MainFragment extends Fragment {
                 pDialog.dismiss();
             
             gridView = (GridView) getView().findViewById(R.id.gridView);
+            //gridView.setOnScrollListener(new EndlessScrollListener());
+            
             
             // give imageItem list/array instead of getdata()
             
             customGridAdapter = new GridViewAdapter(getActivity(), R.layout.row_grid, imageItems);
             gridView.setAdapter(customGridAdapter);
+            ProgressBar mProgress = (ProgressBar) getView().findViewById(R.id.progressBar1);
+            mProgress.setVisibility(View.INVISIBLE);
             /**
              * Updating parsed JSON data into ListView
              * */              
@@ -166,6 +179,42 @@ public class MainFragment extends Fragment {
 
 
  
+    }
+    
+    private class EndlessScrollListener implements OnScrollListener {
+
+        private int visibleThreshold = 9;
+        private int currentPage = 0;
+        private int previousTotal = 0;
+        private boolean loading = true;
+
+        public EndlessScrollListener() {
+        }
+        public EndlessScrollListener(int visibleThreshold) {
+            this.visibleThreshold = visibleThreshold;
+        }
+
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem,
+                int visibleItemCount, int totalItemCount) {
+            if (loading) {
+                if (totalItemCount > previousTotal) {
+                    loading = false;
+                    previousTotal = totalItemCount;
+                    currentPage++;
+                }
+            }
+            if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+                // I load the next page of gigs using a background task,
+                // but you can call any function here.
+                //new GetProductInfo().execute("http://www.roposo.com/collection/clothes?start=40&count=80&ajaxflag=true");
+                loading = true;
+            }
+        }
+
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+        }
     }
  
 }

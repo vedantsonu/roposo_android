@@ -74,6 +74,8 @@ public class MainActivity extends android.support.v4.app.FragmentActivity {
 		// What's hot, We  will add a counter here
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
 		
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1)));
+		
 
 		// Recycle the typed array
 		navMenuIcons.recycle();
@@ -88,7 +90,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity {
 		// enabling action bar app icon and behaving it as toggle button
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
-		getActionBar().setBackgroundDrawable(new ColorDrawable("COLOR"));
+		//getActionBar().setBackgroundDrawable(new ColorDrawable(0xEBEBFF));
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 				R.drawable.ic_drawer, //nav menu toggle icon
@@ -131,7 +133,7 @@ public class MainActivity extends android.support.v4.app.FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
@@ -171,19 +173,22 @@ public class MainActivity extends android.support.v4.app.FragmentActivity {
 			fragment = new MainFragment();
 			break;
 		case 1:
-			fragment = new MainFragment();
+			fragment = new MainFragment("http://www.roposo.com/collection/clothes?start=0&count=40&ajaxflag=true");
 			break;
 		case 2:
 			fragment = new MainFragment("http://www.roposo.com/collection/bags?start=0&count=40&ajaxflag=true");
 			break;
 		case 3:
-			fragment = new MainFragment();
+			fragment = new MainFragment("http://www.roposo.com/collection/shoes?start=0&count=40&ajaxflag=true");
 			break;
 		case 4:
-			fragment = new MainFragment();
+			fragment = new MainFragment("http://www.roposo.com/collection/accessories?start=0&count=40&ajaxflag=true");
 			break;
 		case 5:
-			fragment = new MainFragment();
+			fragment = new MainFragment("http://www.roposo.com/collection/jewellery?start=0&count=40&ajaxflag=true");
+			break;
+		case 6:
+			fragment = new MainFragment("http://www.roposo.com/collection/lingerie?start=0&count=40&ajaxflag=true");
 			break;
 
 		default:
