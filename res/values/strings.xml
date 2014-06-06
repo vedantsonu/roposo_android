@@ -4,5 +4,33 @@
     <string name="app_name">Roposo</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+        <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+    
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item >Feed</item>
+        <item >Clothes</item>
+        <item >Bags</item>
+        <item >Shoes</item>
+        <item >Accessories</item>
+        <item >Jewellery</item>
+        <item >Lingerie</item>
+    </string-array>
+    
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_feed</item>
+        <item>@drawable/ic_clothes</item>
+        <item>@drawable/ic_bags</item>
+        <item>@drawable/ic_shoes</item>
+        <item>@drawable/ic_accessories</item>
+        <item>@drawable/ic_jewellery</item>
+        <item>@drawable/ic_lingerie</item>
+    </array>
+    
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
 
 </resources>
